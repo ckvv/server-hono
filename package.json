@@ -15,16 +15,14 @@
     "start": "wrangler dev"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.0",
     "@types/pg": "^8.11.11",
-    "hono": "^4.7.5",
     "pg": "^8.14.1"
   },
   "devDependencies": {
-    "@types/node": "22.13.13",
+    "@types/node": "22.13.14",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "wrangler": "^4.5.0"
+    "wrangler": "^4.6.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

@@ -1,7 +1,16 @@
-import { Hono } from 'hono'
-import { query } from './pg.js'
-const app = new Hono()
+import { env } from 'node:process';
+import pg from 'pg';
 
-app.get('/', async (c) => c.json(await query('SELECT $1::text as message', ['Hello world!'])))
+const pool = new pg.Pool({
+  connectionString: env.DATABASE_URL,
+});
 
-export default app
+async function query(text: string, params?: any) {
+  return pool.query(text, params);
+}
+
+export default {
+  fetch: async () => {
+    return Response.json(await query('SELECT $1::text as message', ['Hello world!']))
+  }
+}
